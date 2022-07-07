@@ -21,4 +21,23 @@ SELECT * FROM students WHERE email LIKE '%@gmail%' OR email LIKE '%@yahoo%';
 
 -- Selezionare tutti gli esami che si sono svolti a luglio 2020
 SELECT * FROM exams WHERE MONTH(`date`) = 7 AND YEAR(`date`) = 2020;
-SELECT * FROM exams WHERE `date` >= '2020-07-01' AND `date` <= '2020-07-31';
+
+-- ORDER BY
+SELECT * 
+FROM exams 
+WHERE `date` >= '2020-07-01' AND `date` <= '2020-07-31'
+ORDER BY `date` ASC, `hour` DESC;
+-- seleziona la media dei voti di tutti gli esami
+SELECT AVG(vote) FROM exam_student;
+
+-- seleziona la somma dei crediti formativi di tutti i corsi del primo semestre
+SELECT SUM(cfu) 
+FROM courses 
+WHERE period = 'I semestre'; 
+
+-- seleziona quanti corsi ci sono nel primo semestre
+SELECT COUNT(id) 
+FROM courses 
+WHERE period = 'I semestre'; 
+
+
